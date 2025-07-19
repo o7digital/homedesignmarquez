@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Design Márquez</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fdfaf6;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: #6d4c41;
+      color: white;
+      padding: 1rem 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    .hero {
+      background: url('img/hero.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      background-color: #8d6e63;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #5d4037;
+    }
+    .section {
+      padding: 4rem 1rem;
+      background-color: #fff;
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .producto-card {
+      background-color: #fff8f0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .producto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .producto-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    form label {
+      display: block;
+      margin: 0.5rem 0 0.25rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    footer {
+      background-color: #6d4c41;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    [data-aos] {
+      opacity: 0;
+      transition-property: transform, opacity;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <h1>Home Design Márquez</h1>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- INICIO -->
+  <section id="inicio" class="hero" data-aos="fade-in">
+    <div class="container">
+      <h2>Vive en tu espacio prefabricado ideal</h2>
+      <p>Casas de madera sustentables, modernas y personalizadas en México</p>
+      <a href="#productos" class="btn">Ver productos</a>
+    </div>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes-somos" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Quiénes somos</h2>
+      <p><strong>Misión:</strong> Ofrecer viviendas de madera prefabricadas de alta calidad, ecológicas y accesibles para familias mexicanas.</p>
+      <p><strong>Visión:</strong> Ser líderes en el mercado nacional de casas de madera, innovando en diseño y servicio al cliente.</p>
+      <p><strong>Valores:</strong> Calidad · Sustentabilidad · Cercanía · Diseño innovador</p>
+      <p><strong>Nuestra historia:</strong> Home Design Márquez nace del sueño de crear hogares accesibles y acogedores, con diseño moderno y materiales naturales.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Productos</h2>
+      <div class="productos">
+        <div class="producto-card" data-aos="zoom-in">
+          <img src="img/modelo-rancho.jpg" alt="Modelo Rancho">
+          <h3>Modelo Rancho</h3>
+          <p>80 m² · 2 recámaras · 1 baño</p>
+          <p>Desde $XXX,XXX MXN</p>
+        </div>
+        <div class="producto-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="img/modelo-familiar.jpg" alt="Modelo Familiar">
+          <h3>Modelo Familiar</h3>
+          <p>120 m² · 3 recámaras · 2 baños</p>
+          <p>Desde $XXX,XXX MXN</p>
+        </div>
+        <div class="producto-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="img/modelo-compacto.jpg" alt="Modelo Compacto">
+          <h3>Modelo Compacto</h3>
+          <p>45 m² · 1 recámara · 1 baño</p>
+          <p>Desde $XXX,XXX MXN</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Servicios</h2>
+      <ul>
+        <li><strong>Instalación completa:</strong> Montaje profesional en todo México.</li>
+        <li><strong>Mantenimiento preventivo:</strong> Revisiones y ajustes periódicos.</li>
+        <li><strong>Remodelaciones:</strong> Ampliaciones y mejoras.</li>
+        <li><strong>Asesoría personalizada:</strong> Elección del modelo, terreno y más.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Contacto</h2>
+      <form action="send.php" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono">
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Home Design Márquez · Casas Prefabricadas en México</p>
+    </div>
+  </footer>
+</body>
+</html>
