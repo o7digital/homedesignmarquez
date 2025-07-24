@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -125,7 +125,6 @@
 <body>
   <script>AOS.init();</script>
 
-  <!-- HEADER -->
   <header>
     <div class="container">
       <h1>Home Design Márquez</h1>
@@ -141,7 +140,6 @@
     </div>
   </header>
 
-  <!-- INICIO -->
   <section id="inicio" class="hero" data-aos="fade-in">
     <div class="container">
       <h2>Vive en tu espacio prefabricado ideal</h2>
@@ -150,7 +148,6 @@
     </div>
   </section>
 
-  <!-- QUIÉNES SOMOS -->
   <section id="quienes-somos" class="section" data-aos="fade-up">
     <div class="container">
       <h2>Quiénes somos</h2>
@@ -161,34 +158,13 @@
     </div>
   </section>
 
-  <!-- PRODUCTOS -->
   <section id="productos" class="section" data-aos="fade-up">
     <div class="container">
       <h2>Productos</h2>
-      <div class="productos">
-        <div class="producto-card" data-aos="zoom-in">
-          <img src="img/modelo-rancho.jpg" alt="Modelo Rancho" />
-          <h3>Modelo Rancho</h3>
-          <p>80 m² · 2 recámaras · 1 baño</p>
-          <p>Desde $XXX,XXX MXN</p>
-        </div>
-        <div class="producto-card" data-aos="zoom-in" data-aos-delay="100">
-          <img src="img/modelo-familiar.jpg" alt="Modelo Familiar" />
-          <h3>Modelo Familiar</h3>
-          <p>120 m² · 3 recámaras · 2 baños</p>
-          <p>Desde $XXX,XXX MXN</p>
-        </div>
-        <div class="producto-card" data-aos="zoom-in" data-aos-delay="200">
-          <img src="img/modelo-compacto.jpg" alt="Modelo Compacto" />
-          <h3>Modelo Compacto</h3>
-          <p>45 m² · 1 recámara · 1 baño</p>
-          <p>Desde $XXX,XXX MXN</p>
-        </div>
-      </div>
+      <div class="productos" id="productos-lista"></div>
     </div>
   </section>
 
-  <!-- SERVICIOS -->
   <section id="servicios" class="section" data-aos="fade-up">
     <div class="container">
       <h2>Servicios</h2>
@@ -201,7 +177,6 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
   <section id="contacto" class="section" data-aos="fade-up">
     <div class="container">
       <h2>Contacto</h2>
@@ -223,11 +198,35 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>&copy; 2025 Home Design Márquez · Casas Prefabricadas en México</p>
     </div>
   </footer>
+
+  <script>
+    async function cargarProductos() {
+      try {
+        const res = await fetch('productos.json');
+        const data = await res.json();
+        const productosLista = document.getElementById('productos-lista');
+
+        data.productos.forEach(prod => {
+          const card = document.createElement('div');
+          card.classList.add('producto-card');
+          card.innerHTML = `
+            <img src="${prod.imagen}" alt="${prod.nombre}" />
+            <h3>${prod.nombre}</h3>
+            <p>${prod.descripcion}</p>
+          `;
+          productosLista.appendChild(card);
+        });
+      } catch (error) {
+        console.error('Error al cargar productos:', error);
+      }
+    }
+
+    cargarProductos();
+  </script>
 </body>
 </html>
