@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Detalle del Producto - Home Design Márquez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle del producto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -13,107 +13,76 @@
       background-color: #fdfaf6;
       color: #333;
     }
-    .container {
-      max-width: 1000px;
+
+    .producto-detalle {
+      max-width: 800px;
       margin: 0 auto;
     }
+
     h1 {
       color: #6d4c41;
     }
-    .producto-detalle {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .producto-detalle img {
+
+    img {
       max-width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
+      margin-bottom: 1rem;
     }
-    .imagenes-secundarias img {
-      width: 100px;
-      margin-right: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .btn {
-      background-color: #8d6e63;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 1rem;
+
+    .btn-volver {
       display: inline-block;
+      margin-top: 2rem;
+      background-color: #6d4c41;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Detalle del producto</h1>
-    <div class="producto-detalle">
-      <div>
-        <img id="img-principal" src="" alt="" />
-        <div id="imagenes-secundarias" class="imagenes-secundarias"></div>
-      </div>
-      <div>
-        <p id="sku"></p>
-        <h2 id="titulo"></h2>
-        <p id="precio"></p>
-        <p id="descripcion"></p>
-        <a href="index.html#productos" class="btn">Volver al catálogo</a>
-      </div>
-    </div>
+  <div class="producto-detalle">
+    <h1 id="titulo"></h1>
+    <p><strong>SKU:</strong> <span id="sku"></span></p>
+    <img id="imagen" src="" alt="Producto" />
+    <p><strong>Precio:</strong> <span id="precio"></span></p>
+    <p><strong>Descripción:</strong> <span id="descripcion"></span></p>
+    <a class="btn-volver" href="index.html">Volver al catálogo</a>
   </div>
 
   <script>
     const productos = [
       {
-        sku: 'SKU001',
-        titulo: 'Sofá clásico',
-        precio: '$8,500 MXN',
-        descripcion: 'Sofá tapizado con estructura de madera de pino. Ideal para salas acogedoras. Disponible en varios colores.',
-        imagenPrincipal: 'img/mueble1.jpg',
-        imagenesSecundarias: ['img/mueble1b.jpg', 'img/mueble1c.jpg']
+        sku: 'SKU004',
+        titulo: 'Mesa tallada artesanal',
+        precio: '$9,800 MXN',
+        imagen: 'img/puerta.jpeg',
+        descripcion: 'Mesa robusta de madera tallada a mano, perfecta como pieza central en tu hogar. Artesanía de alta calidad hecha en México.'
       },
       {
-        sku: 'SKU002',
-        titulo: 'Mesa rústica',
-        precio: '$5,200 MXN',
-        descripcion: 'Mesa de comedor de madera maciza con acabado rústico. Ideal para interiores cálidos.',
-        imagenPrincipal: 'img/mueble2.jpg',
-        imagenesSecundarias: ['img/mueble2b.jpg', 'img/mueble2c.jpg']
+        sku: 'SKU005',
+        titulo: 'Librero de madera para plantas',
+        precio: '$2,900 MXN',
+        imagen: 'img/librero.jpeg',
+        descripcion: 'Librero decorativo y funcional para plantas y objetos pequeños. Estructura de madera con múltiples niveles.'
       }
     ];
 
-    function getProductoIndex() {
-      const params = new URLSearchParams(window.location.search);
-      return parseInt(params.get('producto')) || 0;
+    const params = new URLSearchParams(window.location.search);
+    const index = parseInt(params.get('producto'));
+    const producto = productos[index];
+
+    if (producto) {
+      document.getElementById('titulo').textContent = producto.titulo;
+      document.getElementById('sku').textContent = producto.sku;
+      document.getElementById('imagen').src = producto.imagen;
+      document.getElementById('imagen').alt = producto.titulo;
+      document.getElementById('precio').textContent = producto.precio;
+      document.getElementById('descripcion').textContent = producto.descripcion;
+    } else {
+      document.querySelector('.producto-detalle').innerHTML = '<p>Producto no encontrado.</p>';
     }
-
-    function mostrarProducto(index) {
-      const p = productos[index];
-      document.getElementById('sku').textContent = 'SKU: ' + p.sku;
-      document.getElementById('titulo').textContent = p.titulo;
-      document.getElementById('precio').textContent = 'Precio: ' + p.precio;
-      document.getElementById('descripcion').textContent = 'Descripción: ' + p.descripcion;
-      document.getElementById('img-principal').src = p.imagenPrincipal;
-
-      const secundarias = document.getElementById('imagenes-secundarias');
-      secundarias.innerHTML = '';
-      p.imagenesSecundarias.forEach(img => {
-        const el = document.createElement('img');
-        el.src = img;
-        el.alt = p.titulo;
-        el.onclick = () => {
-          document.getElementById('img-principal').src = img;
-        };
-        secundarias.appendChild(el);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      mostrarProducto(getProductoIndex());
-    });
   </script>
 </body>
 </html>
+
