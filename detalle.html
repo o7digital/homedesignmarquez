@@ -4,110 +4,120 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Detalle del Producto - Home Design Márquez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #fdfaf6;
-      color: #333;
+      font-family: 'Arial', sans-serif;
+      background-color: #fcf9f3;
+      color: #3f2e2e;
     }
 
-    header {
-      background-color: #6d4c41;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: #fff3e0;
-      border-radius: 10px;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .producto-img {
+    nav .logo {
+      font-weight: bold;
+    }
+
+    nav .nav-links a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #3f2e2e;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 6rem auto 3rem;
+      padding: 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .img-container {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .img-container img {
       width: 100%;
-      max-height: 500px;
-      object-fit: cover;
       border-radius: 8px;
+      object-fit: cover;
+      max-height: 500px;
+    }
+
+    .details {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .details h1 {
+      font-size: 1.8rem;
       margin-bottom: 1rem;
+      color: #6c4c41;
     }
 
-    h1 {
-      font-size: 2rem;
-      color: #6d4c41;
+    .details p {
+      margin: 0.5rem 0;
+      line-height: 1.6;
     }
 
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
+    .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4a3b3b;
+      margin: 1rem 0;
     }
 
-    .boton-regresar {
+    .btn {
       display: inline-block;
-      margin-top: 2rem;
-      background-color: #6d4c41;
+      background-color: #6c4c41;
       color: white;
-      padding: 0.7rem 1.5rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 6px;
       text-decoration: none;
+      margin-top: 1rem;
+    }
+
+    @media(max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Home Design Márquez</h1>
-  </header>
+  <nav>
+    <div class="logo">Home Design Márquez</div>
+    <div class="nav-links">
+      <a href="index.html#productos">Productos</a>
+      <a href="index.html#contacto">Contacto</a>
+    </div>
+  </nav>
 
   <div class="container">
-    <img id="producto-img" class="producto-img" src="" alt="Imagen del producto" />
-    <h1 id="producto-titulo">Producto</h1>
-    <p id="producto-precio">Precio</p>
-    <p id="producto-descripcion">Descripción del producto.</p>
-    <a href="index.html" class="boton-regresar">← Regresar al inicio</a>
+    <div class="img-container">
+      <img src="puerta.jpeg" alt="Mesa tallada artesanal">
+    </div>
+    <div class="details">
+      <h1>Mesa tallada artesanal</h1>
+      <p>Fabricada a mano con maderas seleccionadas de alta calidad. Ideal para interiores que buscan un toque rústico y elegante.</p>
+      <p>Diseño exclusivo con acabados detallados y durabilidad garantizada.</p>
+      <div class="price">$9,800 MXN</div>
+      <a href="mailto:contacto@homedesignmarques.com?subject=Interés%20en%20Mesa%20Tallada" class="btn">Solicitar información</a>
+    </div>
   </div>
-
-  <script>
-    const productos = [
-      {
-        sku: 'SKU004',
-        titulo: 'Mesa tallada artesanal',
-        precio: '$9,800 MXN',
-        descripcion: 'Mesa de madera maciza tallada a mano por artesanos mexicanos. Ideal para comedores o salas.',
-        imagen: 'img/puerta.jpeg'
-      },
-      {
-        sku: 'SKU005',
-        titulo: 'Librero de madera para plantas',
-        precio: '$2,900 MXN',
-        descripcion: 'Estante de madera multiusos, perfecto para exhibir plantas, libros u objetos decorativos.',
-        imagen: 'img/librero.jpeg'
-      }
-    ];
-
-    const params = new URLSearchParams(window.location.search);
-    const index = parseInt(params.get("producto"), 10);
-
-    if (!isNaN(index) && productos[index]) {
-      const producto = productos[index];
-      document.getElementById("producto-img").src = producto.imagen;
-      document.getElementById("producto-titulo").textContent = producto.titulo;
-      document.getElementById("producto-precio").textContent = producto.precio;
-      document.getElementById("producto-descripcion").textContent = producto.descripcion;
-    } else {
-      document.querySelector(".container").innerHTML = `
-        <h1>Producto no encontrado</h1>
-        <p>El producto que buscas no existe o el enlace está dañado.</p>
-        <a href="index.html" class="boton-regresar">← Regresar al inicio</a>
-      `;
-    }
-  </script>
-
 </body>
 </html>
