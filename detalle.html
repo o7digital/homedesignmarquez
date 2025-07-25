@@ -3,121 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Detalle del Producto - Home Design Márquez</title>
+  <title>Detalle del Producto</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #fcf9f3;
-      color: #3f2e2e;
+      font-family: Arial, sans-serif;
+      background-color: #fefaf3;
+      color: #333;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: white;
-      padding: 1rem 2rem;
+    header {
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 10;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background-color: black;
+      color: white;
+      z-index: 1000;
     }
 
-    nav .logo {
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+    }
+
+    .logo {
+      font-size: 18px;
       font-weight: bold;
     }
 
-    nav .nav-links a {
-      margin-left: 1.5rem;
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: white;
       text-decoration: none;
-      color: #3f2e2e;
-      font-weight: 500;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
     }
 
     .container {
-      max-width: 1000px;
-      margin: 6rem auto 3rem;
-      padding: 0 2rem;
+      max-width: 900px;
+      margin: 100px auto 40px;
+      padding: 20px;
+      background-color: #fff2e6;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .producto-detalle {
       display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .img-container {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .img-container img {
-      width: 100%;
+    .producto-detalle img {
+      max-width: 100%;
       border-radius: 8px;
-      object-fit: cover;
-      max-height: 500px;
+      margin-bottom: 20px;
     }
 
-    .details {
-      flex: 1;
-      min-width: 300px;
+    .producto-detalle h1 {
+      font-size: 24px;
+      margin: 0 0 10px;
     }
 
-    .details h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #6c4c41;
+    .producto-detalle .sku {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
     }
 
-    .details p {
-      margin: 0.5rem 0;
-      line-height: 1.6;
-    }
-
-    .price {
-      font-size: 1.5rem;
+    .producto-detalle .precio {
+      font-size: 20px;
       font-weight: bold;
-      color: #4a3b3b;
-      margin: 1rem 0;
+      margin-bottom: 20px;
     }
 
-    .btn {
-      display: inline-block;
-      background-color: #6c4c41;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
+    .producto-detalle p {
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .volver {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
       text-decoration: none;
-      margin-top: 1rem;
+      color: #5d3b2d;
+      font-weight: bold;
     }
 
-    @media(max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
+    .volver:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Home Design Márquez</div>
-    <div class="nav-links">
-      <a href="index.html#productos">Productos</a>
-      <a href="index.html#contacto">Contacto</a>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Home Design Marques</div>
+      <nav>
+        <ul>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <div class="container">
-    <div class="img-container">
-      <img src="puerta.jpeg" alt="Mesa tallada artesanal">
+    <div class="producto-detalle">
+      <img src="img/librero.jpeg" alt="Librero de madera">
+      <h1>Librero de madera para plantas</h1>
+      <div class="sku">SKU: SKU005</div>
+      <div class="precio">$2,900 MXN</div>
+      <p>Este hermoso librero de madera natural es ideal para organizar tus libros, plantas o decoraciones favoritas. Hecho artesanalmente con materiales duraderos y diseño moderno.</p>
     </div>
-    <div class="details">
-      <h1>Mesa tallada artesanal</h1>
-      <p>Fabricada a mano con maderas seleccionadas de alta calidad. Ideal para interiores que buscan un toque rústico y elegante.</p>
-      <p>Diseño exclusivo con acabados detallados y durabilidad garantizada.</p>
-      <div class="price">$9,800 MXN</div>
-      <a href="mailto:contacto@homedesignmarques.com?subject=Interés%20en%20Mesa%20Tallada" class="btn">Solicitar información</a>
-    </div>
+    <a class="volver" href="index.html">← Volver al catálogo</a>
   </div>
 </body>
 </html>
