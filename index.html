@@ -15,31 +15,46 @@
     }
 
     .slider {
+      position: relative;
       width: 100%;
-      height: 450px;
+      height: 100vh;
       overflow: hidden;
-      margin-bottom: 2rem;
     }
 
     .slides {
       display: flex;
       width: 300%;
       height: 100%;
-      animation: slide 24s infinite;
+      transition: transform 1s ease-in-out;
     }
 
     .slides img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       flex-shrink: 0;
+      background-color: #000;
     }
 
-    @keyframes slide {
-      0% { transform: translateX(0%); }
-      33% { transform: translateX(-100%); }
-      66% { transform: translateX(-200%); }
-      100% { transform: translateX(0%); }
+    .dots {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #6d4c41;
     }
 
     .container {
@@ -104,17 +119,34 @@
       border-radius: 6px;
       text-decoration: none;
     }
+
+    @media (max-width: 768px) {
+      .slider {
+        height: 400px;
+      }
+      .slides img {
+        object-fit: cover;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- SLIDER -->
   <div class="slider">
-    <div class="slides">
+    <div class="slides" id="slider">
       <img src="img/hero.jpg" alt="Slide 1">
       <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="Slide 2">
       <img src="img/trac-vu-2t9y3HbdEFw-unsplash.jpg" alt="Slide 3">
     </div>
+    <div class="dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
   </div>
 
+  <!-- QUIÉNES SOMOS -->
   <div class="container">
     <h1>Quiénes somos</h1>
     <p><strong>Misión:</strong> Ofrecer viviendas de madera prefabricadas de alta calidad, ecológicas y accesibles para familias mexicanas.</p>
@@ -124,50 +156,4 @@
 
     <div class="search-bar">
       <input type="text" id="busqueda" placeholder="Buscar producto...">
-      <button onclick="buscarProducto()">Buscar</button>
-    </div>
-
-    <h2 id="productos">Productos</h2>
-    <div id="lista-productos" class="productos"></div>
-  </div>
-
-  <script>
-    const productos = [
-      {
-        sku: 'SKU004',
-        titulo: 'Mesa tallada artesanal',
-        precio: '$9,800 MXN',
-        imagen: 'img/puerta.jpeg'
-      },
-      {
-        sku: 'SKU005',
-        titulo: 'Librero de madera para plantas',
-        precio: '$2,900 MXN',
-        imagen: 'img/librero.jpeg'
-      }
-    ];
-
-    function renderizarProductos(filtrados = productos) {
-      const contenedor = document.getElementById('lista-productos');
-      contenedor.innerHTML = '';
-      filtrados.forEach((p, i) => {
-        contenedor.innerHTML += `
-          <div class="producto">
-            <img src="${p.imagen}" alt="${p.titulo}" />
-            <h3>${p.titulo}</h3>
-            <p>${p.precio}</p>
-            <a href="detalle.html?producto=${i}">Ver más</a>
-          </div>`;
-      });
-    }
-
-    function buscarProducto() {
-      const q = document.getElementById('busqueda').value.toLowerCase();
-      const filtrados = productos.filter(p => p.titulo.toLowerCase().includes(q));
-      renderizarProductos(filtrados);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => renderizarProductos());
-  </script>
-</body>
-</html>
+      <button onclick="buscarProducto()">Busc
