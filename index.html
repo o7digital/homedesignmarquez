@@ -8,120 +8,92 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fdfaf4;
-      color: #442d26;
+      background-color: #fefaf3;
     }
 
     header {
-      background-color: #000;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: black;
+      color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 24px;
-      position: sticky;
-      top: 0;
+      padding: 10px 20px;
       z-index: 1000;
     }
 
-    header div {
-      color: white;
-      font-weight: bold;
-    }
-
     nav a {
-      margin-left: 20px;
       color: white;
       text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
     }
 
     .slider {
+      height: 100vh;
       position: relative;
-      max-width: 100%;
-      height: 500px;
       overflow: hidden;
+      margin-top: 50px;
     }
 
-    .slides {
-      display: flex;
-      width: 300%;
-      animation: slide 12s infinite;
-    }
-
-    .slides img {
+    .slider img {
       width: 100%;
-      height: 500px;
+      height: 100vh;
       object-fit: cover;
+      display: none;
     }
 
-    @keyframes slide {
-      0% { margin-left: 0%; }
-      33% { margin-left: 0%; }
-      36% { margin-left: -100%; }
-      66% { margin-left: -100%; }
-      69% { margin-left: -200%; }
-      99% { margin-left: -200%; }
-      100% { margin-left: 0%; }
+    .slider img.active {
+      display: block;
     }
 
-    .content {
+    section {
       padding: 40px 20px;
-      max-width: 1100px;
+      max-width: 900px;
       margin: auto;
     }
 
-    h2 {
-      color: #5e3b32;
-    }
-
-    .productos {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
     .producto {
-      background-color: #fff4eb;
+      background-color: #fff2e6;
+      padding: 20px;
+      margin: 10px;
       border-radius: 12px;
-      padding: 16px;
+      display: inline-block;
+      width: 280px;
       text-align: center;
-      width: 260px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.08);
     }
 
     .producto img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
+      max-width: 100%;
       border-radius: 8px;
     }
 
-    .btn {
-      background-color: #6b4035;
+    .producto h3 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+
+    .producto p {
+      font-weight: bold;
+      margin: 0;
+    }
+
+    button {
+      background-color: #5d3b2d;
       color: white;
-      padding: 8px 16px;
       border: none;
-      border-radius: 5px;
+      padding: 8px 14px;
+      border-radius: 6px;
       margin-top: 10px;
       cursor: pointer;
-    }
-
-    .search {
-      margin: 20px 0;
-      text-align: center;
-    }
-
-    input[type="text"] {
-      padding: 8px;
-      width: 250px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div>Home Design Márquez</div>
+    <div><strong>Home Design Márquez</strong></div>
     <nav>
       <a href="#productos">Productos</a>
       <a href="#contacto">Contacto</a>
@@ -129,41 +101,54 @@
   </header>
 
   <div class="slider">
-    <div class="slides">
-      <img src="img/hero.jpg" alt="Slider 1">
-      <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="Slider 2">
-      <img src="img/trac-vu-2t9y3HbDEFw-unsplash.jpg" alt="Slider 3">
-    </div>
+    <img src="img/hero.jpg" alt="Slider 1" class="active">
+    <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="Slider 2">
+    <img src="img/trac-vu-2t9y3HbDEFw-unsplash.jpg" alt="Slider 3">
   </div>
 
-  <div class="content">
+  <section>
     <h2>Quiénes somos</h2>
     <p><strong>Misión:</strong> Ofrecer viviendas de madera prefabricadas de alta calidad, ecológicas y accesibles para familias mexicanas.</p>
     <p><strong>Visión:</strong> Ser líderes en el mercado nacional de casas de madera, innovando en diseño y servicio al cliente.</p>
     <p><strong>Valores:</strong> Calidad · Sustentabilidad · Cercanía · Diseño innovador</p>
     <p><strong>Nuestra historia:</strong> Home Design Márquez nace del sueño de crear hogares accesibles y acogedores, con diseño moderno y materiales naturales.</p>
 
-    <div class="search">
-      <input type="text" placeholder="Buscar producto...">
-      <button class="btn">Buscar</button>
+    <input type="text" placeholder="Buscar producto..." />
+    <button>Buscar</button>
+  </section>
+
+  <section id="productos">
+    <h2>Productos</h2>
+
+    <div class="producto">
+      <img src="img/puerta.jpeg" alt="Puerta de madera">
+      <h3>Puerta de madera sólida</h3>
+      <p>$6,500 MXN</p>
+      <button>Ver más</button>
     </div>
 
-    <h2 id="productos">Productos</h2>
-    <div class="productos">
-      <div class="producto">
-        <img src="img/puerta.jpeg" alt="Mesa tallada artesanal">
-        <h3>Mesa tallada artesanal</h3>
-        <p><strong>$9,800 MXN</strong></p>
-        <button class="btn">Ver más</button>
-      </div>
-      <div class="producto">
-        <img src="img/librero.jpeg" alt="Librero de madera para plantas">
-        <h3>Librero de madera para plantas</h3>
-        <p><strong>$2,900 MXN</strong></p>
-        <button class="btn">Ver más</button>
-      </div>
+    <div class="producto">
+      <img src="img/librero.jpeg" alt="Librero de madera">
+      <h3>Librero de madera para plantas</h3>
+      <p>$2,900 MXN</p>
+      <button>Ver más</button>
     </div>
-  </div>
+  </section>
 
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slider img");
+
+    function showSlides() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove("active");
+      });
+
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add("active");
+    }
+
+    setInterval(showSlides, 5000); // cambia cada 5 segundos
+  </script>
 </body>
 </html>
