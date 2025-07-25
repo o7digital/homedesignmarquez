@@ -20,14 +20,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 10px 30px;
       z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
       font-weight: bold;
     }
 
@@ -44,36 +48,45 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
+      display: none;
     }
 
     .slider img.active {
-      opacity: 1;
-      z-index: 1;
+      display: block;
     }
 
     section {
       padding: 40px 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
+    }
+
+    .productos-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
     }
 
     .producto {
       background-color: #fff2e6;
       padding: 20px;
-      margin: 10px;
       border-radius: 12px;
-      display: inline-block;
-      width: 280px;
       text-align: center;
+      flex: 1 1 280px;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .producto img {
       max-width: 100%;
       border-radius: 8px;
+      height: auto;
     }
 
     .producto h3 {
@@ -95,6 +108,14 @@
       margin-top: 10px;
       cursor: pointer;
     }
+
+    input[type="text"] {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 70%;
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
@@ -107,9 +128,9 @@
   </header>
 
   <div class="slider">
-    <img src="img/hero.jpg" alt="Slider 1">
+    <img src="img/hero.jpg" alt="Slider 1" class="active">
     <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="Slider 2">
-    <img src="img/trac-vu-2t9y3HbDEFw-unsplash.jpg" alt="Slider 3">
+    <img src="img/slider3.jpg" alt="Slider 3">
   </div>
 
   <section>
@@ -125,19 +146,19 @@
 
   <section id="productos">
     <h2>Productos</h2>
-
-    <div class="producto">
-      <img src="img/puerta.jpeg" alt="Puerta de madera">
-      <h3>Puerta de madera sólida</h3>
-      <p>$6,500 MXN</p>
-      <button>Ver más</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/librero.jpeg" alt="Librero de madera">
-      <h3>Librero de madera para plantas</h3>
-      <p>$2,900 MXN</p>
-      <button>Ver más</button>
+    <div class="productos-grid">
+      <div class="producto">
+        <img src="img/puerta.jpeg" alt="Puerta de madera">
+        <h3>Puerta de madera sólida</h3>
+        <p>$6,500 MXN</p>
+        <button>Ver más</button>
+      </div>
+      <div class="producto">
+        <img src="img/librero.jpeg" alt="Librero de madera">
+        <h3>Librero de madera para plantas</h3>
+        <p>$2,900 MXN</p>
+        <button>Ver más</button>
+      </div>
     </div>
   </section>
 
@@ -146,15 +167,12 @@
     const slides = document.querySelectorAll(".slider img");
 
     function showSlides() {
-      slides.forEach(slide => slide.classList.remove("active"));
+      slides.forEach((slide) => slide.classList.remove("active"));
       slideIndex = (slideIndex + 1) % slides.length;
       slides[slideIndex].classList.add("active");
     }
 
-    // Activar primer slide al cargar
-    slides[0].classList.add("active");
-
-    setInterval(showSlides, 5000);
+    setInterval(showSlides, 5000); // cada 5 segundos
   </script>
 </body>
 </html>
