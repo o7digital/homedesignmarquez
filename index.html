@@ -20,18 +20,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 30px;
+      padding: 10px 40px;
       z-index: 1000;
-    }
-
-    nav {
-      display: flex;
-      gap: 20px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
     }
 
@@ -80,13 +76,13 @@
       max-width: 300px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
 
     .producto img {
       max-width: 100%;
       border-radius: 8px;
-      height: auto;
+      margin-bottom: 15px;
     }
 
     .producto h3 {
@@ -94,9 +90,15 @@
       margin: 10px 0 5px;
     }
 
+    .sku {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
     .producto p {
       font-weight: bold;
-      margin: 0;
+      margin: 0 0 10px;
     }
 
     button {
@@ -105,7 +107,7 @@
       border: none;
       padding: 8px 14px;
       border-radius: 6px;
-      margin-top: 10px;
+      margin-top: auto;
       cursor: pointer;
     }
 
@@ -150,12 +152,14 @@
       <div class="producto">
         <img src="img/puerta.jpeg" alt="Puerta de madera">
         <h3>Puerta de madera sólida</h3>
+        <div class="sku">SKU: HDM-001</div>
         <p>$6,500 MXN</p>
         <button>Ver más</button>
       </div>
       <div class="producto">
         <img src="img/librero.jpeg" alt="Librero de madera">
         <h3>Librero de madera para plantas</h3>
+        <div class="sku">SKU: HDM-002</div>
         <p>$2,900 MXN</p>
         <button>Ver más</button>
       </div>
@@ -172,7 +176,7 @@
       slides[slideIndex].classList.add("active");
     }
 
-    setInterval(showSlides, 5000); // cada 5 segundos
+    setInterval(showSlides, 5000); // cambia cada 5 segundos
   </script>
 </body>
 </html>
