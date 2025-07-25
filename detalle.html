@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Detalle del Producto - Home Design Márquez</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
@@ -14,55 +14,100 @@
       color: #333;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    h1, h2, h3 {
-      color: #6d4c41;
-    }
-
-    .producto-detalle {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    header {
+      background-color: #6d4c41;
+      color: white;
+      padding: 1rem;
       text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
       background-color: #fff3e0;
-      padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .producto-detalle img {
+    .producto-img {
       width: 100%;
-      max-width: 600px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 1.5rem;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
     }
 
-    .producto-detalle h2 {
-      margin-bottom: 0.5rem;
+    h1 {
+      font-size: 2rem;
+      color: #6d4c41;
     }
 
-    .producto-detalle p {
-      font-size: 1.2rem;
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
     }
 
-    .volver {
+    .boton-regresar {
       display: inline-block;
       margin-top: 2rem;
       background-color: #6d4c41;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 6px;
       text-decoration: none;
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <h1>Home Design Márquez</h1>
+  </header>
+
   <div class="container">
-    <div class="producto-detalle" id="detalle-producto">
-      <img
+    <img id="producto-img" class="producto-img" src="" alt="Imagen del producto" />
+    <h1 id="producto-titulo">Producto</h1>
+    <p id="producto-precio">Precio</p>
+    <p id="producto-descripcion">Descripción del producto.</p>
+    <a href="index.html" class="boton-regresar">← Regresar al inicio</a>
+  </div>
+
+  <script>
+    const productos = [
+      {
+        sku: 'SKU004',
+        titulo: 'Mesa tallada artesanal',
+        precio: '$9,800 MXN',
+        descripcion: 'Mesa de madera maciza tallada a mano por artesanos mexicanos. Ideal para comedores o salas.',
+        imagen: 'img/puerta.jpeg'
+      },
+      {
+        sku: 'SKU005',
+        titulo: 'Librero de madera para plantas',
+        precio: '$2,900 MXN',
+        descripcion: 'Estante de madera multiusos, perfecto para exhibir plantas, libros u objetos decorativos.',
+        imagen: 'img/librero.jpeg'
+      }
+    ];
+
+    const params = new URLSearchParams(window.location.search);
+    const index = parseInt(params.get("producto"), 10);
+
+    if (!isNaN(index) && productos[index]) {
+      const producto = productos[index];
+      document.getElementById("producto-img").src = producto.imagen;
+      document.getElementById("producto-titulo").textContent = producto.titulo;
+      document.getElementById("producto-precio").textContent = producto.precio;
+      document.getElementById("producto-descripcion").textContent = producto.descripcion;
+    } else {
+      document.querySelector(".container").innerHTML = `
+        <h1>Producto no encontrado</h1>
+        <p>El producto que buscas no existe o el enlace está dañado.</p>
+        <a href="index.html" class="boton-regresar">← Regresar al inicio</a>
+      `;
+    }
+  </script>
+
+</body>
+</html>
