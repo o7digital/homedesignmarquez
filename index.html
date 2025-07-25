@@ -7,229 +7,163 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #fcf9f3;
-      color: #3f2e2e;
+      font-family: Arial, sans-serif;
+      background-color: #fdfaf4;
+      color: #442d26;
     }
 
-    /* NAVBAR */
-    nav {
+    header {
+      background-color: #000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: white;
-      padding: 1rem 2rem;
-      position: fixed;
+      padding: 12px 24px;
+      position: sticky;
       top: 0;
-      width: 100%;
-      z-index: 10;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
 
-    nav .logo {
+    header div {
+      color: white;
       font-weight: bold;
     }
 
-    nav .nav-links a {
-      margin-left: 1.5rem;
+    nav a {
+      margin-left: 20px;
+      color: white;
       text-decoration: none;
-      color: #3f2e2e;
-      font-weight: 500;
-    }
-
-    /* SLIDER */
-    .slider-container {
-      margin-top: 60px;
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
+      font-weight: bold;
     }
 
     .slider {
-      display: flex;
-      width: 300%;
-      height: 100%;
-      animation: slide 180s infinite;
+      position: relative;
+      max-width: 100%;
+      height: 500px;
+      overflow: hidden;
     }
 
-    .slider img {
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+
+    .slides img {
       width: 100%;
-      height: 100%;
+      height: 500px;
       object-fit: cover;
-      flex-shrink: 0;
     }
 
     @keyframes slide {
-      0% { transform: translateX(0%); }
-      33.333% { transform: translateX(0%); }
-      33.334% { transform: translateX(-100%); }
-      66.666% { transform: translateX(-100%); }
-      66.667% { transform: translateX(-200%); }
-      100% { transform: translateX(-200%); }
+      0% { margin-left: 0%; }
+      33% { margin-left: 0%; }
+      36% { margin-left: -100%; }
+      66% { margin-left: -100%; }
+      69% { margin-left: -200%; }
+      99% { margin-left: -200%; }
+      100% { margin-left: 0%; }
     }
 
-    .dots {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      background-color: #bbb;
-      border-radius: 50%;
-      transition: background 0.3s;
-    }
-
-    .dot.active {
-      background-color: #6c4c41;
-    }
-
-    /* SECTIONS */
-    .section {
-      max-width: 1000px;
-      margin: 4rem auto;
-      padding: 0 2rem;
+    .content {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
     }
 
     h2 {
-      color: #6c4c41;
+      color: #5e3b32;
     }
 
-    /* PRODUCTOS */
     .productos {
       display: flex;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 2rem;
       justify-content: center;
     }
 
-    .producto-card {
-      background-color: #fff5e9;
+    .producto {
+      background-color: #fff4eb;
       border-radius: 12px;
-      padding: 1rem;
-      width: 260px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 16px;
       text-align: center;
+      width: 260px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
     }
 
-    .producto-card img {
+    .producto img {
       width: 100%;
-      border-radius: 8px;
-      height: 280px;
+      height: 260px;
       object-fit: cover;
-    }
-
-    .producto-card h3 {
-      margin: 1rem 0 0.5rem;
-      font-size: 1rem;
-      color: #4a3b3b;
-    }
-
-    .producto-card p {
-      margin: 0.2rem 0;
-      font-weight: bold;
+      border-radius: 8px;
     }
 
     .btn {
-      display: inline-block;
-      background-color: #6c4c41;
+      background-color: #6b4035;
       color: white;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      margin-top: 0.5rem;
-      text-decoration: none;
-    }
-
-    /* BUSCADOR */
-    .buscador {
-      text-align: center;
-      margin: 2rem 0;
-    }
-
-    .buscador input {
-      padding: 0.5rem;
-      width: 240px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .buscador button {
-      padding: 0.5rem 1rem;
-      background-color: #6c4c41;
-      color: white;
+      padding: 8px 16px;
       border: none;
-      border-radius: 4px;
-      margin-left: 8px;
+      border-radius: 5px;
+      margin-top: 10px;
       cursor: pointer;
     }
 
-    @media(max-width: 600px) {
-      .producto-card {
-        width: 90%;
-      }
-      .slider-container {
-        height: 60vh;
-      }
+    .search {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 250px;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Home Design Márquez</div>
-    <div class="nav-links">
+
+  <header>
+    <div>Home Design Márquez</div>
+    <nav>
       <a href="#productos">Productos</a>
       <a href="#contacto">Contacto</a>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <div class="slider-container">
-    <div class="slider">
-      <img src="slider1.jpg" alt="Slider 1" />
-      <img src="slider2.jpg" alt="Slider 2" />
-      <img src="slider3.jpg" alt="Slider 3" />
-    </div>
-    <div class="dots">
-      <div class="dot active"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
+  <div class="slider">
+    <div class="slides">
+      <img src="img/hero.jpg" alt="Slider 1">
+      <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="Slider 2">
+      <img src="img/trac-vu-2t9y3HbDEFw-unsplash.jpg" alt="Slider 3">
     </div>
   </div>
 
-  <div class="section">
+  <div class="content">
     <h2>Quiénes somos</h2>
     <p><strong>Misión:</strong> Ofrecer viviendas de madera prefabricadas de alta calidad, ecológicas y accesibles para familias mexicanas.</p>
     <p><strong>Visión:</strong> Ser líderes en el mercado nacional de casas de madera, innovando en diseño y servicio al cliente.</p>
     <p><strong>Valores:</strong> Calidad · Sustentabilidad · Cercanía · Diseño innovador</p>
     <p><strong>Nuestra historia:</strong> Home Design Márquez nace del sueño de crear hogares accesibles y acogedores, con diseño moderno y materiales naturales.</p>
 
-    <div class="buscador">
-      <input type="text" placeholder="Buscar producto..." />
-      <button>Buscar</button>
+    <div class="search">
+      <input type="text" placeholder="Buscar producto...">
+      <button class="btn">Buscar</button>
+    </div>
+
+    <h2 id="productos">Productos</h2>
+    <div class="productos">
+      <div class="producto">
+        <img src="img/puerta.jpeg" alt="Mesa tallada artesanal">
+        <h3>Mesa tallada artesanal</h3>
+        <p><strong>$9,800 MXN</strong></p>
+        <button class="btn">Ver más</button>
+      </div>
+      <div class="producto">
+        <img src="img/librero.jpeg" alt="Librero de madera para plantas">
+        <h3>Librero de madera para plantas</h3>
+        <p><strong>$2,900 MXN</strong></p>
+        <button class="btn">Ver más</button>
+      </div>
     </div>
   </div>
 
-  <div class="section" id="productos">
-    <h2>Productos</h2>
-    <div class="productos">
-      <div class="producto-card">
-        <img src="puerta.jpeg" alt="Mesa tallada artesanal">
-        <h3>Mesa tallada artesanal</h3>
-        <p>$9,800 MXN</p>
-        <a href="#" class="btn">Ver más</a>
-      </div>
-      <div class="producto-card">
-        <img src="librero.jpeg" alt="Librero de madera para plantas">
-        <h3>Librero de madera para plantas</h3>
-        <p>$2,900 MXN</p>
-        <a href="#" class="btn">Ver más</a>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
