@@ -1,164 +1,169 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Design Márquez</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
+      padding: 0;
       background-color: #fdfaf6;
       color: #333;
     }
-    header, main {
+
+    .slider {
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+
+    .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 2rem;
     }
-    h1, h2 {
+
+    h1, h2, h3 {
       color: #6d4c41;
     }
-    .slider {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 12px;
-      margin-bottom: 2rem;
-    }
-    .slider img {
-      width: 100%;
-      display: none;
-    }
-    .slider img.active {
-      display: block;
-    }
+
     .search-bar {
-      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
     }
+
     .search-bar input {
       padding: 0.5rem;
-      width: 60%;
       font-size: 1rem;
+      width: 200px;
+      margin-right: 1rem;
     }
+
     .search-bar button {
       padding: 0.5rem 1rem;
-      margin-left: 0.5rem;
-      font-size: 1rem;
       background-color: #8d6e63;
-      color: #fff;
+      color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
       cursor: pointer;
     }
+
     .productos {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
+      justify-content: center;
     }
+
     .producto {
-      flex: 1 1 45%;
       background-color: #fff3e0;
-      border-radius: 10px;
       padding: 1rem;
+      border-radius: 10px;
+      width: 300px;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
     .producto img {
       width: 100%;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
+      border-radius: 6px;
     }
-    .producto h3 {
-      margin: 0.5rem 0 0;
-      color: #5d4037;
-    }
-    .producto p {
-      margin: 0.25rem 0;
+
+    .producto a {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #6d4c41;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
     }
   </style>
-  <script>
-    const sliderImages = [
-      'img/slider1.jpg',
-      'img/sanju-pandita-MVOHAGI1APA-unsplash.jpg',
-      'img/trac-vu-2t9y3HbdEFw-unsplash.jpg'
-    ];
-    let currentSlide = 0;
-    function changeSlide() {
-      const images = document.querySelectorAll('.slider img');
-      images.forEach((img, idx) => img.classList.toggle('active', idx === currentSlide));
-      currentSlide = (currentSlide + 1) % images.length;
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      setInterval(changeSlide, 4000);
-
-      const searchBtn = document.getElementById('buscarBtn');
-      searchBtn.addEventListener('click', () => {
-        const termino = document.getElementById('busqueda').value.toLowerCase();
-        const productos = document.querySelectorAll('.producto');
-        productos.forEach(prod => {
-          const match = prod.dataset.categoria.includes(termino);
-          prod.style.display = match || termino === '' ? 'block' : 'none';
-        });
-      });
-    });
-  </script>
 </head>
 <body>
-  <header>
-    <div class="slider">
-      <img src="img/slider1.jpg" alt="slider1" class="active">
-      <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="slider2">
-      <img src="img/trac-vu-2t9y3HbdEFw-unsplash.jpg" alt="slider3">
+  <div class="slider">
+    <div class="slides">
+      <img src="img/hero.jpg" alt="Slide 1">
+      <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="Slide 2">
+      <img src="img/trac-vu-2t9y3HbdEFw-unsplash.jpg" alt="Slide 3">
     </div>
+  </div>
+
+  <div class="container">
+    <h1>Quiénes somos</h1>
+    <p><strong>Misión:</strong> Ofrecer viviendas de madera prefabricadas de alta calidad, ecológicas y accesibles para familias mexicanas.</p>
+    <p><strong>Visión:</strong> Ser líderes en el mercado nacional de casas de madera, innovando en diseño y servicio al cliente.</p>
+    <p><strong>Valores:</strong> Calidad · Sustentabilidad · Cercanía · Diseño innovador</p>
+    <p><strong>Nuestra historia:</strong> Home Design Márquez nace del sueño de crear hogares accesibles y acogedores, con diseño moderno y materiales naturales.</p>
+
     <div class="search-bar">
-      <input type="text" id="busqueda" placeholder="Buscar: casas, mesas, libreros...">
-      <button id="buscarBtn">Buscar</button>
+      <input type="text" id="busqueda" placeholder="Buscar producto...">
+      <button onclick="buscarProducto()">Buscar</button>
     </div>
-  </header>
-  <main>
-    <h2>Productos</h2>
-    <div class="productos" id="productos">
-      <div class="producto" data-categoria="sofa sala">
-        <a href="detalle.html?producto=0">
-          <img src="img/mueble1.jpg" alt="Sofá clásico">
-          <h3>Sofá clásico</h3>
-          <p>$8,500 MXN</p>
-        </a>
-      </div>
-      <div class="producto" data-categoria="mesa comedor">
-        <a href="detalle.html?producto=1">
-          <img src="img/mueble2.jpg" alt="Mesa rústica">
-          <h3>Mesa rústica</h3>
-          <p>$5,200 MXN</p>
-        </a>
-      </div>
-      <div class="producto" data-categoria="casa prefabricada">
-        <a href="detalle.html?producto=2">
-          <img src="img/casa1.jpg" alt="Casa prefabricada A">
-          <h3>Casa prefabricada A</h3>
-          <p>$200,000 MXN</p>
-        </a>
-      </div>
-      <div class="producto" data-categoria="mesa artesanal">
-        <a href="detalle.html?producto=3">
-          <img src="img/puerta.jpeg" alt="Mesa tallada artesanal">
-          <h3>Mesa tallada artesanal</h3>
-          <p>$9,800 MXN</p>
-        </a>
-      </div>
-      <div class="producto" data-categoria="librero plantas">
-        <a href="detalle.html?producto=4">
-          <img src="img/librero.jpeg" alt="Librero de madera">
-          <h3>Librero de madera para plantas</h3>
-          <p>$2,900 MXN</p>
-        </a>
-      </div>
-    </div>
-  </main>
+
+    <h2 id="productos">Productos</h2>
+    <div id="lista-productos" class="productos"></div>
+  </div>
+
+  <script>
+    const productos = [
+      {
+        sku: 'SKU004',
+        titulo: 'Mesa tallada artesanal',
+        precio: '$9,800 MXN',
+        imagen: 'img/puerta.jpeg'
+      },
+      {
+        sku: 'SKU005',
+        titulo: 'Librero de madera para plantas',
+        precio: '$2,900 MXN',
+        imagen: 'img/librero.jpeg'
+      }
+    ];
+
+    function renderizarProductos(filtrados = productos) {
+      const contenedor = document.getElementById('lista-productos');
+      contenedor.innerHTML = '';
+      filtrados.forEach((p, i) => {
+        contenedor.innerHTML += `
+          <div class="producto">
+            <img src="${p.imagen}" alt="${p.titulo}" />
+            <h3>${p.titulo}</h3>
+            <p>${p.precio}</p>
+            <a href="detalle.html?producto=${i}">Ver más</a>
+          </div>`;
+      });
+    }
+
+    function buscarProducto() {
+      const q = document.getElementById('busqueda').value.toLowerCase();
+      const filtrados = productos.filter(p => p.titulo.toLowerCase().includes(q));
+      renderizarProductos(filtrados);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => renderizarProductos());
+  </script>
 </body>
 </html>
