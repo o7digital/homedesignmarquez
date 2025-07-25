@@ -4,116 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home Design Márquez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #fdfaf6;
-      color: #333;
+      font-family: 'Arial', sans-serif;
+      background-color: #fcf9f3;
+      color: #3f2e2e;
     }
 
-    header {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 1rem 2rem;
+    /* NAVBAR */
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      z-index: 1000;
+      background-color: white;
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.5rem;
+    nav .logo {
+      font-weight: bold;
+    }
+
+    nav .nav-links a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #3f2e2e;
       font-weight: 500;
     }
 
-    .slider {
+    /* SLIDER */
+    .slider-container {
+      margin-top: 60px;
       position: relative;
+      width: 100%;
       height: 100vh;
       overflow: hidden;
     }
 
-    .slides {
+    .slider {
       display: flex;
-      height: 100%;
       width: 300%;
+      height: 100%;
       animation: slide 180s infinite;
     }
 
-    .slides img {
+    .slider img {
       width: 100%;
-      height: 100vh;
+      height: 100%;
       object-fit: cover;
       flex-shrink: 0;
     }
 
     @keyframes slide {
       0% { transform: translateX(0%); }
-      33% { transform: translateX(-100%); }
-      66% { transform: translateX(-200%); }
-      100% { transform: translateX(0%); }
+      33.333% { transform: translateX(0%); }
+      33.334% { transform: translateX(-100%); }
+      66.666% { transform: translateX(-100%); }
+      66.667% { transform: translateX(-200%); }
+      100% { transform: translateX(-200%); }
     }
 
     .dots {
       position: absolute;
       bottom: 20px;
-      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      justify-content: center;
       gap: 10px;
-      z-index: 999;
     }
 
-    .dots span {
-      display: block;
-      width: 12px;
-      height: 12px;
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #bbb;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.5);
+      transition: background 0.3s;
     }
 
-    .dots span:first-child {
-      background-color: #795548;
+    .dot.active {
+      background-color: #6c4c41;
     }
 
-    .container {
+    /* SECTIONS */
+    .section {
       max-width: 1000px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
+      margin: 4rem auto;
+      padding: 0 2rem;
     }
 
-    h2, h3 {
-      color: #6d4c41;
+    h2 {
+      color: #6c4c41;
     }
 
-    .search-bar {
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-
-    .search-bar input {
-      padding: 0.5rem;
-      font-size: 1rem;
-      width: 200px;
-      margin-right: 1rem;
-    }
-
-    .search-bar button {
-      padding: 0.5rem 1rem;
-      background-color: #8d6e63;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
+    /* PRODUCTOS */
     .productos {
       display: flex;
       flex-wrap: wrap;
@@ -121,102 +109,127 @@
       justify-content: center;
     }
 
-    .producto {
-      background-color: #fff3e0;
+    .producto-card {
+      background-color: #fff5e9;
+      border-radius: 12px;
       padding: 1rem;
-      border-radius: 10px;
-      width: 300px;
+      width: 260px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .producto img {
+    .producto-card img {
       width: 100%;
-      border-radius: 6px;
+      border-radius: 8px;
+      height: 280px;
+      object-fit: cover;
     }
 
-    .producto a {
+    .producto-card h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1rem;
+      color: #4a3b3b;
+    }
+
+    .producto-card p {
+      margin: 0.2rem 0;
+      font-weight: bold;
+    }
+
+    .btn {
       display: inline-block;
-      margin-top: 1rem;
-      background-color: #6d4c41;
+      background-color: #6c4c41;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 1rem;
       border-radius: 6px;
+      margin-top: 0.5rem;
       text-decoration: none;
+    }
+
+    /* BUSCADOR */
+    .buscador {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .buscador input {
+      padding: 0.5rem;
+      width: 240px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .buscador button {
+      padding: 0.5rem 1rem;
+      background-color: #6c4c41;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    @media(max-width: 600px) {
+      .producto-card {
+        width: 90%;
+      }
+      .slider-container {
+        height: 60vh;
+      }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="logo">Home Design Márquez</div>
+    <div class="nav-links">
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
 
-  <header>
-    <h1>Home Design Márquez</h1>
-  </header>
-
-  <div class="slider">
-    <div class="slides">
-      <img src="img/hero.jpg" alt="Foto 1" />
-      <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="Foto 2" />
-      <img src="img/trac-vu-2t9y3HbdEFw-unsplash.jpg" alt="Foto 3" />
+  <div class="slider-container">
+    <div class="slider">
+      <img src="slider1.jpg" alt="Slider 1" />
+      <img src="slider2.jpg" alt="Slider 2" />
+      <img src="slider3.jpg" alt="Slider 3" />
     </div>
     <div class="dots">
-      <span></span><span></span><span></span>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="section">
     <h2>Quiénes somos</h2>
     <p><strong>Misión:</strong> Ofrecer viviendas de madera prefabricadas de alta calidad, ecológicas y accesibles para familias mexicanas.</p>
     <p><strong>Visión:</strong> Ser líderes en el mercado nacional de casas de madera, innovando en diseño y servicio al cliente.</p>
     <p><strong>Valores:</strong> Calidad · Sustentabilidad · Cercanía · Diseño innovador</p>
     <p><strong>Nuestra historia:</strong> Home Design Márquez nace del sueño de crear hogares accesibles y acogedores, con diseño moderno y materiales naturales.</p>
 
-    <div class="search-bar">
-      <input type="text" id="busqueda" placeholder="Buscar producto...">
-      <button onclick="buscarProducto()">Buscar</button>
+    <div class="buscador">
+      <input type="text" placeholder="Buscar producto..." />
+      <button>Buscar</button>
     </div>
-
-    <h2 id="productos">Productos</h2>
-    <div id="lista-productos" class="productos"></div>
   </div>
 
-  <script>
-    const productos = [
-      {
-        sku: 'SKU004',
-        titulo: 'Mesa tallada artesanal',
-        precio: '$9,800 MXN',
-        imagen: 'img/puerta.jpeg'
-      },
-      {
-        sku: 'SKU005',
-        titulo: 'Librero de madera para plantas',
-        precio: '$2,900 MXN',
-        imagen: 'img/librero.jpeg'
-      }
-    ];
-
-    function renderizarProductos(filtrados = productos) {
-      const contenedor = document.getElementById('lista-productos');
-      contenedor.innerHTML = '';
-      filtrados.forEach((p, i) => {
-        contenedor.innerHTML += `
-          <div class="producto">
-            <img src="${p.imagen}" alt="${p.titulo}" />
-            <h3>${p.titulo}</h3>
-            <p>${p.precio}</p>
-            <a href="detalle.html?producto=${i}">Ver más</a>
-          </div>`;
-      });
-    }
-
-    function buscarProducto() {
-      const q = document.getElementById('busqueda').value.toLowerCase();
-      const filtrados = productos.filter(p => p.titulo.toLowerCase().includes(q));
-      renderizarProductos(filtrados);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => renderizarProductos());
-  </script>
-
+  <div class="section" id="productos">
+    <h2>Productos</h2>
+    <div class="productos">
+      <div class="producto-card">
+        <img src="puerta.jpeg" alt="Mesa tallada artesanal">
+        <h3>Mesa tallada artesanal</h3>
+        <p>$9,800 MXN</p>
+        <a href="#" class="btn">Ver más</a>
+      </div>
+      <div class="producto-card">
+        <img src="librero.jpeg" alt="Librero de madera para plantas">
+        <h3>Librero de madera para plantas</h3>
+        <p>$2,900 MXN</p>
+        <a href="#" class="btn">Ver más</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
