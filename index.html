@@ -76,10 +76,49 @@
 
     section {
       padding: 40px 20px;
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
     }
 
+    /* Tarjetas de maderas */
+    .madera-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .madera-card {
+      background-color: #fff2e6;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .madera-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .madera-card-content {
+      padding: 15px;
+      flex-grow: 1;
+    }
+
+    .madera-card h3 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #5d3b2d;
+    }
+
+    .madera-card p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* Productos */
     .producto {
       background-color: #fff2e6;
       padding: 20px;
@@ -127,13 +166,11 @@
         flex-direction: column;
         align-items: flex-start;
       }
-
       nav ul {
         flex-direction: column;
         gap: 10px;
         margin-top: 10px;
       }
-
       nav ul li {
         margin-left: 0;
       }
@@ -142,100 +179,123 @@
 </head>
 <body>
 
-  <header>
-    <div class="nav-container">
-      <div class="logo">Home Design Marques</div>
-      <nav>
-        <ul>
-          <li><a href="#tipos">Tipos de Madera</a></li>
-          <li><a href="#productos">Productos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="nav-container">
+    <div class="logo">Home Design Marques</div>
+    <nav>
+      <ul>
+        <li><a href="#tipos">Tipos de Madera</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <div class="slider">
-    <img src="img/hero.jpg" alt="Slider 1" class="active">
-    <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="Slider 2">
-    <img src="img/slider3.jpg" alt="Slider 3">
+<div class="slider">
+  <img src="img/hero.jpg" alt="Slider 1" class="active">
+  <img src="img/sanju-pandita-MVOHAGI1APA-unsplash.jpg" alt="Slider 2">
+  <img src="img/trac-vu-2t9y3HbDEFw-unsplash.jpg" alt="Slider 3">
+</div>
+
+<section>
+  <h2>Quiénes somos</h2>
+  <p><strong>Misión:</strong> Ofrecer viviendas de madera prefabricadas de alta calidad, ecológicas y accesibles para familias mexicanas.</p>
+  <p><strong>Visión:</strong> Ser líderes en el mercado nacional de casas de madera, innovando en diseño y servicio al cliente.</p>
+  <p><strong>Valores:</strong> Calidad · Sustentabilidad · Cercanía · Diseño innovador</p>
+  <p><strong>Nuestra historia:</strong> Home Design Márquez nace del sueño de crear hogares accesibles y acogedores, con diseño moderno y materiales naturales.</p>
+</section>
+
+<section id="tipos">
+  <h2>Tipos de Madera</h2>
+  <div class="madera-grid">
+    <!-- Abedul -->
+    <div class="madera-card">
+      <img src="img/maderas/abedul.jpeg" alt="Madera de Abedul">
+      <div class="madera-card-content">
+        <h3>Abedul</h3>
+        <p><strong>Origen:</strong> Del germánico “batilar” o “bedul”, que significa “el árbol blanco”.</p>
+        <p>Madera de tono claro con un grano fino y uniforme, resistente y fácil de trabajar, se usa para la fabricación de mobiliario de calidad o ebanistería, carpintería interior, contrachapados de gama alta y juguetes.</p>
+      </div>
+    </div>
+
+    <!-- Abeto -->
+    <div class="madera-card">
+      <img src="img/maderas/abeto.jpeg" alt="Madera de Abeto">
+      <div class="madera-card-content">
+        <h3>Abeto</h3>
+        <p><strong>Origen:</strong> Abies alba, originario de Europa.</p>
+        <p>Madera blanca-amarillenta, fácil de trabajar, ideal para muebles, instrumentos musicales, puertas, ventanas y carpintería de interior. No se usa en exteriores.</p>
+      </div>
+    </div>
+
+    <!-- Álamo -->
+    <div class="madera-card">
+      <img src="img/maderas/alamo.jpeg" alt="Madera de Álamo">
+      <div class="madera-card-content">
+        <h3>Álamo</h3>
+        <p><strong>Origen:</strong> Populus alba, de la familia de las salicáceas.</p>
+        <p>Madera blanda, sin vetas ricas. Ideal para puertas lisas pintadas, proyectos económicos o remodelaciones sencillas.</p>
+      </div>
+    </div>
+
+    <!-- Arce -->
+    <div class="madera-card">
+      <img src="img/maderas/arce2.jpeg" alt="Madera de Arce">
+      <div class="madera-card-content">
+        <h3>Arce</h3>
+        <p><strong>Origen:</strong> Del latín “acer”, que significa “afilado”.</p>
+        <p>Madera clara (blanca a rosada), dureza media. Se usa en muebles, construcción e instrumentos musicales.</p>
+      </div>
+    </div>
+
+    <!-- Caoba -->
+    <div class="madera-card">
+      <img src="img/maderas/caoba.jpeg" alt="Madera de Caoba">
+      <div class="madera-card-content">
+        <h3>Caoba</h3>
+        <p><strong>Origen:</strong> Swietenia macrophylla, originaria de zonas intertropicales de América.</p>
+        <p>Madera marrón rojiza a rojo oscuro, grano fino. Muy resistente y valiosa. Usada para muebles, puertas y acabados interiores de lujo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="productos">
+  <h2>Productos</h2>
+  <div class="producto">
+    <img src="img/puerta.jpeg" alt="Puerta de madera">
+    <div class="sku">SKU: SKU004</div>
+    <h3>Puerta de madera sólida</h3>
+    <p>$6,500 MXN</p>
+    <button>Ver más</button>
   </div>
 
-  <section>
-    <h2>Quiénes somos</h2>
-    <p><strong>Misión:</strong> Ofrecer viviendas de madera prefabricadas de alta calidad, ecológicas y accesibles para familias mexicanas.</p>
-    <p><strong>Visión:</strong> Ser líderes en el mercado nacional de casas de madera, innovando en diseño y servicio al cliente.</p>
-    <p><strong>Valores:</strong> Calidad · Sustentabilidad · Cercanía · Diseño innovador</p>
-    <p><strong>Nuestra historia:</strong> Home Design Márquez nace del sueño de crear hogares accesibles y acogedores, con diseño moderno y materiales naturales.</p>
+  <div class="producto">
+    <img src="img/librero.jpeg" alt="Librero de madera">
+    <div class="sku">SKU: SKU005</div>
+    <h3>Librero de madera para plantas</h3>
+    <p>$2,900 MXN</p>
+    <button>Ver más</button>
+  </div>
+</section>
 
-    <input type="text" placeholder="Buscar producto..." />
-    <button>Buscar</button>
-  </section>
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>Envíanos un mensaje o visítanos para conocer más.</p>
+</section>
 
-  <!-- NUEVA SECCIÓN: TIPOS DE MADERA -->
-  <section id="tipos">
-    <h2>Tipos de Madera</h2>
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slider img");
 
-    <h3>Abedul</h3>
-    <p><strong>Origen:</strong> Del germánico “batilar” o “bedul”, que significa “el árbol blanco”.</p>
-    <p>Madera de tono claro con grano fino y uniforme. Resistente y fácil de trabajar. Se usa en ebanistería, carpintería interior, contrachapado de alta gama y juguetes.</p>
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove("active"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+  }
 
-    <h3>Abeto</h3>
-    <p><strong>Origen:</strong> Abies alba, originario de Europa.</p>
-    <p>Madera blanca-amarillenta, fácil de trabajar, ideal para muebles, instrumentos musicales, puertas, ventanas y carpintería de interior. No se usa en exteriores.</p>
-
-    <h3>Álamo</h3>
-    <p><strong>Origen:</strong> Populus alba, perteneciente a las salicáceas.</p>
-    <p>Madera blanda, sin vetas ricas. Ideal para puertas lisas pintadas, proyectos económicos o remodelaciones sencillas.</p>
-
-    <h3>Arce</h3>
-    <p><strong>Origen:</strong> Del latín “acer”, que significa “afilado”.</p>
-    <p>Madera clara (blanca a rosada), dureza media. Se usa en muebles, construcción e instrumentos musicales.</p>
-
-    <h3>Caoba</h3>
-    <p><strong>Origen:</strong> Swietenia macrophylla, zona intertropical americana.</p>
-    <p>Madera marrón rojiza a rojo oscuro, grano fino. Muy resistente y valiosa. Usada para muebles, puertas y acabados interiores de lujo.</p>
-  </section>
-
-  <section id="productos">
-    <h2>Productos</h2>
-
-    <div class="producto">
-      <img src="img/puerta.jpeg" alt="Puerta de madera">
-      <div class="sku">SKU: SKU004</div>
-      <h3>Puerta de madera sólida</h3>
-      <p>$6,500 MXN</p>
-      <button>Ver más</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/librero.jpeg" alt="Librero de madera">
-      <div class="sku">SKU: SKU005</div>
-      <h3>Librero de madera para plantas</h3>
-      <p>$2,900 MXN</p>
-      <button>Ver más</button>
-    </div>
-  </section>
-
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Envíanos un mensaje o visítanos para conocer más.</p>
-  </section>
-
-  <script>
-    let slideIndex = 0;
-    const slides = document.querySelectorAll(".slider img");
-
-    function showSlides() {
-      slides.forEach((slide, index) => {
-        slide.classList.remove("active");
-      });
-
-      slideIndex = (slideIndex + 1) % slides.length;
-      slides[slideIndex].classList.add("active");
-    }
-
-    setInterval(showSlides, 5000); // cambia cada 5 segundos
-  </script>
+  setInterval(showSlides, 5000);
+</script>
 </body>
 </html>
