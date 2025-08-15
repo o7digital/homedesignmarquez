@@ -56,6 +56,13 @@
       text-decoration: underline;
     }
 
+    /* Botón menú móvil */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
     .slider {
       height: 100vh;
       margin-top: 60px;
@@ -161,18 +168,26 @@
       cursor: pointer;
     }
 
-    @media (max-width: 600px) {
-      .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    @media (max-width: 768px) {
       nav ul {
+        display: none;
         flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
+        background-color: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
       }
       nav ul li {
-        margin-left: 0;
+        margin: 10px 0;
+        text-align: center;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
       }
     }
   </style>
@@ -182,6 +197,7 @@
 <header>
   <div class="nav-container">
     <div class="logo">Home Design Marques</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
     <nav>
       <ul>
         <li><a href="#tipos">Tipos de Madera</a></li>
@@ -209,7 +225,6 @@
 <section id="tipos">
   <h2>Tipos de Madera</h2>
   <div class="madera-grid">
-    <!-- Abedul -->
     <div class="madera-card">
       <img src="img/maderas/abedul.jpeg" alt="Madera de Abedul">
       <div class="madera-card-content">
@@ -218,8 +233,6 @@
         <p>Madera de tono claro con un grano fino y uniforme, resistente y fácil de trabajar, se usa para la fabricación de mobiliario de calidad o ebanistería, carpintería interior, contrachapados de gama alta y juguetes.</p>
       </div>
     </div>
-
-    <!-- Abeto -->
     <div class="madera-card">
       <img src="img/maderas/abeto.jpeg" alt="Madera de Abeto">
       <div class="madera-card-content">
@@ -228,8 +241,6 @@
         <p>Madera blanca-amarillenta, fácil de trabajar, ideal para muebles, instrumentos musicales, puertas, ventanas y carpintería de interior. No se usa en exteriores.</p>
       </div>
     </div>
-
-    <!-- Álamo -->
     <div class="madera-card">
       <img src="img/maderas/alamo.jpeg" alt="Madera de Álamo">
       <div class="madera-card-content">
@@ -238,8 +249,6 @@
         <p>Madera blanda, sin vetas ricas. Ideal para puertas lisas pintadas, proyectos económicos o remodelaciones sencillas.</p>
       </div>
     </div>
-
-    <!-- Arce -->
     <div class="madera-card">
       <img src="img/maderas/arce2.jpeg" alt="Madera de Arce">
       <div class="madera-card-content">
@@ -248,8 +257,6 @@
         <p>Madera clara (blanca a rosada), dureza media. Se usa en muebles, construcción e instrumentos musicales.</p>
       </div>
     </div>
-
-    <!-- Caoba -->
     <div class="madera-card">
       <img src="img/maderas/caoba.jpeg" alt="Madera de Caoba">
       <div class="madera-card-content">
@@ -270,7 +277,6 @@
     <p>$6,500 MXN</p>
     <button>Ver más</button>
   </div>
-
   <div class="producto">
     <img src="img/librero.jpeg" alt="Librero de madera">
     <div class="sku">SKU: SKU005</div>
@@ -286,6 +292,7 @@
 </section>
 
 <script>
+  // Slider
   let slideIndex = 0;
   const slides = document.querySelectorAll(".slider img");
 
@@ -296,6 +303,11 @@
   }
 
   setInterval(showSlides, 5000);
+
+  // Menú móvil
+  document.getElementById("menu-toggle").addEventListener("click", function() {
+    document.querySelector("nav ul").classList.toggle("active");
+  });
 </script>
 </body>
 </html>
