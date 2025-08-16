@@ -149,4 +149,165 @@
     }
 
     .producto p {
-      margin: 0
+      margin: 0 0 5px;
+      font-weight: bold;
+    }
+
+    .producto .sku {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #5d3b2d;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+      }
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">Home Design Márquez</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav>
+      <ul>
+        <li><a href="#tipos">Tipos de Madera</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="slider">
+  <img src="img/slider1.jpg" alt="Slider 1" class="active">
+  <img src="img/slider2.jpg" alt="Slider 2">
+  <img src="img/slider3.jpg" alt="Slider 3">
+</div>
+
+<section>
+  <h2>Quiénes somos</h2>
+  <p><strong>Misión:</strong> Ofrecer viviendas de madera prefabricadas de alta calidad, ecológicas y accesibles para familias mexicanas.</p>
+  <p><strong>Visión:</strong> Ser líderes en el mercado nacional de casas de madera, innovando en diseño y servicio al cliente.</p>
+  <p><strong>Valores:</strong> Calidad · Sustentabilidad · Cercanía · Diseño innovador</p>
+  <p><strong>Nuestra historia:</strong> Home Design Márquez nace del sueño de crear hogares accesibles y acogedores, con diseño moderno y materiales naturales.</p>
+</section>
+
+<section id="tipos">
+  <h2>Tipos de Madera</h2>
+  <div class="madera-grid">
+    <div class="madera-card">
+      <img src="img/maderas/abedul.jpeg" alt="Madera de Abedul">
+      <div class="madera-card-content">
+        <h3>Abedul</h3>
+        <p><strong>Origen:</strong> Del germánico “batilar” o “bedul”, que significa “el árbol blanco”.</p>
+        <p>Madera de tono claro con un grano fino y uniforme, resistente y fácil de trabajar, se usa para la fabricación de mobiliario de calidad o ebanistería, carpintería interior, contrachapados de gama alta y juguetes.</p>
+      </div>
+    </div>
+    <div class="madera-card">
+      <img src="img/maderas/abeto.jpeg" alt="Madera de Abeto">
+      <div class="madera-card-content">
+        <h3>Abeto</h3>
+        <p><strong>Origen:</strong> Abies alba, originario de Europa.</p>
+        <p>Madera blanca-amarillenta, fácil de trabajar, ideal para muebles, instrumentos musicales, puertas, ventanas y carpintería de interior. No se usa en exteriores.</p>
+      </div>
+    </div>
+    <div class="madera-card">
+      <img src="img/maderas/alamo.jpeg" alt="Madera de Álamo">
+      <div class="madera-card-content">
+        <h3>Álamo</h3>
+        <p><strong>Origen:</strong> Populus alba, de la familia de las salicáceas.</p>
+        <p>Madera blanda, sin vetas ricas. Ideal para puertas lisas pintadas, proyectos económicos o remodelaciones sencillas.</p>
+      </div>
+    </div>
+    <div class="madera-card">
+      <img src="img/maderas/arce2.jpeg" alt="Madera de Arce">
+      <div class="madera-card-content">
+        <h3>Arce</h3>
+        <p><strong>Origen:</strong> Del latín “acer”, que significa “afilado”.</p>
+        <p>Madera clara (blanca a rosada), dureza media. Se usa en muebles, construcción e instrumentos musicales.</p>
+      </div>
+    </div>
+    <div class="madera-card">
+      <img src="img/maderas/caoba.jpeg" alt="Madera de Caoba">
+      <div class="madera-card-content">
+        <h3>Caoba</h3>
+        <p><strong>Origen:</strong> Swietenia macrophylla, originaria de zonas intertropicales de América.</p>
+        <p>Madera marrón rojiza a rojo oscuro, grano fino. Muy resistente y valiosa. Usada para muebles, puertas y acabados interiores de lujo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="productos">
+  <h2>Productos</h2>
+  <div class="producto">
+    <img src="img/puerta.jpeg" alt="Puerta de madera">
+    <div class="sku">SKU: SKU004</div>
+    <h3>Puerta de madera sólida</h3>
+    <p>$6,500 MXN</p>
+    <button>Ver más</button>
+  </div>
+  <div class="producto">
+    <img src="img/librero.jpeg" alt="Librero de madera">
+    <div class="sku">SKU: SKU005</div>
+    <h3>Librero de madera para plantas</h3>
+    <p>$2,900 MXN</p>
+    <button>Ver más</button>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>Envíanos un mensaje o visítanos para conocer más.</p>
+</section>
+
+<script>
+  // Slider
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slider img");
+
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove("active"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+  }
+
+  setInterval(showSlides, 5000);
+
+  // Menú móvil
+  document.getElementById("menu-toggle").addEventListener("click", function() {
+    document.querySelector("nav ul").classList.toggle("active");
+  });
+</script>
+</body>
+</html>
