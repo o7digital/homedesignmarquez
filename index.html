@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -298,10 +298,13 @@
 
   function showSlides() {
     slides.forEach((slide) => slide.classList.remove("active"));
-    slideIndex = (slideIndex + 1) % slides.length;
     slides[slideIndex].classList.add("active");
+    slideIndex = (slideIndex + 1) % slides.length;
   }
 
+  // Mostrar el primero de inmediato
+  showSlides();
+  // Luego avanzar cada 5 segundos
   setInterval(showSlides, 5000);
 
   // Menú móvil
