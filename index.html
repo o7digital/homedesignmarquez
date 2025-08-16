@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home Design Marques</title>
+  <title>Home Design Márquez</title>
   <style>
     body {
       margin: 0;
@@ -81,87 +81,72 @@
       display: block;
     }
 
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: black;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 10px 0;
-      }
-      nav ul li {
-        margin: 10px 0;
-        text-align: center;
-      }
-      nav ul.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
     }
-  </style>
-</head>
-<body>
 
-<header>
-  <div class="nav-container">
-    <div class="logo">Home Design Marques</div>
-    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-    <nav>
-      <ul>
-        <li><a href="#tipos">Tipos de Madera</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    /* Tarjetas de maderas */
+    .madera-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
 
-<div class="slider">
-  <img src="img/slider1.jpg" alt="Slider 1" class="active">
-  <img src="img/slider2.jpg" alt="Slider 2">
-  <img src="img/slider3.jpg" alt="Slider 3">
-</div>
+    .madera-card {
+      background-color: #fff2e6;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
 
-<section id="tipos">
-  <h2>Tipos de Madera</h2>
-  <p>Aquí irá la información detallada sobre los distintos tipos de madera.</p>
-</section>
+    .madera-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
 
-<section id="productos">
-  <h2>Productos</h2>
-  <p>Aquí irá la sección de productos destacados.</p>
-</section>
+    .madera-card-content {
+      padding: 15px;
+      flex-grow: 1;
+    }
 
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p>Envíanos un mensaje o visítanos para conocer más.</p>
-</section>
+    .madera-card h3 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #5d3b2d;
+    }
 
-<script>
-  // Slider
-  let slideIndex = 0;
-  const slides = document.querySelectorAll(".slider img");
+    .madera-card p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
 
-  function showSlides() {
-    slides.forEach((slide) => slide.classList.remove("active"));
-    slides[slideIndex].classList.add("active");
-    slideIndex = (slideIndex + 1) % slides.length;
-  }
+    /* Productos */
+    .producto {
+      background-color: #fff2e6;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 12px;
+      display: inline-block;
+      width: 280px;
+      text-align: center;
+      vertical-align: top;
+    }
 
-  // Mostrar el primero de inmediato
-  showSlides();
-  // Avanzar cada 5 segundos
-  setInterval(showSlides, 5000);
+    .producto img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
 
-  // Menú móvil
-  document.getElementById("menu-toggle").addEventListener("click", function() {
-    document.querySelector("nav ul").classList.toggle("active");
-  });
-</script>
-</body>
-</html>
+    .producto h3 {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .producto p {
+      margin: 0
